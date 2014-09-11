@@ -5,86 +5,48 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-		<link rel="stylesheet" type="text/css" href=trackerCSS.css>
 	</head>
+	
+	<style>
+	</style>
 
 	<body>
-		<div class="container">
-			<header>
-				<h1>Nutritional Profile</h1>
-			</header>
+	<div class="container">
+		<div class="page-header">
+			<h1>Nutritional Home</h1>
 		</div>
-		
+	</div>
+	
+	<div class="container">	
+		<ul class="nav nav-pills">
+	  		<li class="active"><a href="/playground">Home</a></li>
+	  		<li><a href="/playground/profile.php">Profile</a></li>
+	 		<li><a href="#">Contact</a></li>
+		</ul>
+	</div>
+	
 		<div class="container">
-			<nav class="nav-bar">
-				<ul class="link-list">
-					<li><a href="/">Profile</a></li>
-					<li><a href="mailto:n02531357@hawkmail.newpaltz.edu?Subject=Fitness%20Tracker">Contact</a></li>
-				</ul>
-			</nav>
-		</div>
-		
-		<div class="container">	
-			<div id="form">
-				<div class='container'>
-					<div class="food">
-						<p id="breakfast">Breakfast</p>
-						<form>
-							Food: <input type="text" name="food">
-							Calories: <input type="text" name="calories">
-							<input type="submit" value="Submit">
-						</form>
-					</div>
-				</div>
-				
-				<div class='container'>
-					<div class="food">
-						<p id="lunch">Lunch</p>
-						<form>
-							Food: <input type="text" name="food">
-							Calories: <input type="text" name="calories">
-							<input type="submit" value="Submit">
-						</form>
-					</div>
-				</div>
-				
-				<div class='container'>
-					<div class="food">
-						<p id="dinner">Dinner</p>
-						<form>
-							Food: <input type="text" name="food">
-							Calories: <input type="text" name="calories">
-							<input type="submit" value="Submit">
-						</form>
-					</div>
-				</div>
-				
-				<div class='container'>
-					<div class="food">
-						<p id="snack">Snacks</p>
-						<form>
-							Food: <input type="text" name="food">
-							Calories: <input type="text" name="calories">
-							<input type="submit" value="Submit">
-						</form>
-					</div>
-				</div>
-				
-				<div class='container'>
-					<div class="workout">
-						<p id="excercise">Excercise</p>
-						<form>
-							Exercise: <input type="text" name="workout">
-							Calories: <input type="text" name="calories_burned">
-							<input type="submit" value="Submit">
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="container">
-			<p>Table displaying entered values and totals will go here<p>		
+			<p>General news and things. Sign up/in, Welcome page, etc.<p>
+				<div class="container">		
+					<form class="form-inline" role="form">
+						 <div class="form-group">
+						    <div class="input-group">
+						      <div class="input-group-addon">@</div>
+						      <input class="form-control" type="email" placeholder="Enter email">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="sr-only" for="exampleInputPassword2">Password</label>
+						    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+						  </div>
+						  <div class="checkbox">
+						    <label>
+						      <input type="checkbox"> Remember me
+						    </label>
+						  </div>
+						  <button type="submit" class="btn btn-default">Sign in</button>
+					</form>
+				</div>			
 		</div>		
 		
 		<div class="container">
