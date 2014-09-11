@@ -19,8 +19,8 @@
 	
 	<div class="container">	
 		<ul class="nav nav-pills">
-	  		<li class="active"><a href="/playground">Home</a></li>
-	  		<li><a href="/playground/profile.php">Profile</a></li>
+	  		<li class="active"><a href="/~n02531357/playground">Home</a></li>
+	  		<li><a href="/~n02531357/playground/profile.php">Profile</a></li>
 	 		<li><a href="#">Contact</a></li>
 		</ul>
 	</div>
