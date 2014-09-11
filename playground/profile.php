@@ -23,8 +23,8 @@
 	
 	<div class="container">	
 		<ul class="nav nav-pills">
-	  		<li><a href="cs.newpaltz.edu/~n02531357/WebProgramming/WebProg_Assignments/playground">Home</a></li>
-	  		<li class="active"><a href="cs.newpaltz.edu/~n02531357/WebProgramming/WebProg_Assignments/playground/profile.php">Profile</a></li>
+	  		<li><a href="www.cs.newpaltz.edu/~n02531357/WebProgramming/WebProg_Assignments/playground">Home</a></li>
+	  		<li class="active"><a href="www.cs.newpaltz.edu/~n02531357/WebProgramming/WebProg_Assignments/playground/profile.php">Profile</a></li>
 	 		<li><a href="#">Contact</a></li>
 		</ul>
 	</div>	
