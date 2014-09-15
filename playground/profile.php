@@ -167,7 +167,6 @@
 				</div>
 				</form>
 			</div>
-		</div>
 		<div class="container">
 			<div class="table-responsive">
 				<table class="table table-hover">
@@ -193,6 +192,7 @@
 				</table>
 			</div>
 		</div>
+	</div>
 	<div class="tab-pane fade" id="excercise">
 		<p>
 			 Excercise
