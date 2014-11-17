@@ -6,45 +6,35 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 </head>
-<style type="text/css">
-    .page-header {
-        position: relative;
-        padding: 30px 15px;
-        color: #FFFFFF;
-        text-align: center;
-        text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
-        background-image: linear-gradient(to bottom, #006600 0px, #009933 100%);
-        background-repeat: repeat-x;
-    }
-	.page-header p {
-		color: #A6CAA6;
-	  	text-align: center;
-	  	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
-	}    
-	a, a:hover {
-	 	color: #006600;
-	}
-</style>
+
+<link rel="stylesheet" type="text/css" href="content/css/header.css">
+
 <body>
-<div class="container">
-	<header>
 	<div class="container">
-		<ul class="nav navbar-nav">
-			<li class="active">
-			<a href="/~n02531357/WebProgramming/WebProg_Assignments/playground/">Home</a>
-			</li>
-			<li>
-			<a href="/~n02531357/WebProgramming/WebProg_Assignments/playground/profile.php">Profile</a>
-			</li>
-			<li>
-			<a href="#">Forum</a>
-			</li>
-			<li>
-			<a href="#">Contact</a>
-			</li>
-		</ul>
-	</div>
-	</header>
+		<header>
+			<div class="container">
+				<ul class="nav navbar-nav">
+					<li class="active">
+					<a href="/~n02531357/WebProgramming/WebProg_Assignments/playground">
+					Home  <span class="glyphicon glyphicon-home"></span></a>
+					</li>
+					<li>
+					<a href="/~n02531357/WebProgramming/WebProg_Assignments/playground/progress.php">
+					Progress <span class="glyphicon glyphicon-road"></span></a>
+					</li>
+					<li>
+					<a href="/~n02531357/WebProgramming/WebProg_Assignments/playground/food.php">
+					Food <span class="glyphicon glyphicon-cutlery"></span></a>
+					</li>
+					<li>
+					<a href="/~n02531357/WebProgramming/WebProg_Assignments/playground/excercise.php">
+					Excercise <span class="glyphicon glyphicon-fire"></span></a>
+					</li>
+				</ul>
+			</div>
+		</header>
+	</div>	
+	
 	<div class="container">
 		<div class="page-header">
 			<h1>Welcome</h1>
@@ -53,6 +43,7 @@
 			</p>
 		</div>
 	</div>
+	
 	<div class="container" style="padding-bottom: 25px;">
 		<div class="row">
 			<div class="col-md-2">
@@ -105,6 +96,7 @@
 		</div>
 	</div>
 </div>
+
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
