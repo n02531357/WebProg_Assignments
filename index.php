@@ -15,7 +15,7 @@
 			<div class="container">
 				<ul class="nav navbar-nav">
 					<li class="active">
-					<a href="/~n02531357/WebProgramming/playground">
+					<a href="/~n02531357/WebProgramming/">
 					Home  <span class="glyphicon glyphicon-home"></span></a>
 					</li>
 					<li>
