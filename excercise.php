@@ -15,19 +15,19 @@
 			<div class="container">
 				<ul class="nav navbar-nav">
 					<li class="active">
-					<a href="/~n02531357/WebProgramming/WebProg_Assignments/playground">
+					<a href="/~n02531357/WebProgramming/playground">
 					Home  <span class="glyphicon glyphicon-home"></span></a>
 					</li>
 					<li>
-					<a href="/~n02531357/WebProgramming/WebProg_Assignments/playground/progress.php">
+					<a href="/~n02531357/WebProgramming/progress.php">
 					Progress <span class="glyphicon glyphicon-road"></span></a>
 					</li>
 					<li>
-					<a href="/~n02531357/WebProgramming/WebProg_Assignments/playground/food.php">
+					<a href="/~n02531357/WebProgramming/food.php">
 					Food <span class="glyphicon glyphicon-cutlery"></span></a>
 					</li>
 					<li>
-					<a href="/~n02531357/WebProgramming/WebProg_Assignments/playground/excercise.php">
+					<a href="/~n02531357/WebProgramming/excercise.php">
 					Excercise <span class="glyphicon glyphicon-fire"></span></a>
 					</li>
 				</ul>
