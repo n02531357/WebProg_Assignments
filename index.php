@@ -8,25 +8,27 @@
 </head>
 
 <link rel="stylesheet" type="text/css" href="content/css/header.css">
+<link rel="stylesheet" type="text/css" href="content/css/link_hover.css">
+<link rel="stylesheet" type="text/css" href="content/css/index_selector_panel.css">
 
 <body>
 	<div class="container">
 		<header>
 			<div class="container">
 				<ul class="nav navbar-nav">
-					<li class="active">
+					<li class="active" id="home">
 					<a href="/~n02531357/WebProgramming/">
 					Home  <span class="glyphicon glyphicon-home"></span></a>
 					</li>
-					<li>
+					<li id="progress">
 					<a href="/~n02531357/WebProgramming/progress.php">
 					Progress <span class="glyphicon glyphicon-road"></span></a>
 					</li>
-					<li>
+					<li id="food">
 					<a href="/~n02531357/WebProgramming/food.php">
 					Food <span class="glyphicon glyphicon-cutlery"></span></a>
 					</li>
-					<li>
+					<li id="excercise">
 					<a href="/~n02531357/WebProgramming/excercise.php">
 					Excercise <span class="glyphicon glyphicon-fire"></span></a>
 					</li>
@@ -36,14 +38,14 @@
 	</div>	
 	
 	<div class="container">
-		<div class="page-header">
+		<div class="page-header" id="defaultHeader">
 			<h1>Welcome</h1>
 			<p>
 				This web application's purpose is to assist the user in tracking their nutritional and fitness goals.
 			</p>
 		</div>
 	</div>
-	
+		
 	<div class="container" style="padding-bottom: 25px;">
 		<div class="row">
 			<div class="col-md-2">
@@ -95,7 +97,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+	
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

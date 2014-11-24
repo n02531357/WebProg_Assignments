@@ -8,13 +8,14 @@
 </head>
 
 <link rel="stylesheet" type="text/css" href="content/css/header.css">
+<link rel="stylesheet" type="text/css" href="content/css/link_hover.css">
 
 <body>
 	<div class="container">
 		<header>
 			<div class="container">
 				<ul class="nav navbar-nav">
-					<li class="active">
+					<li>
 					<a href="/~n02531357/WebProgramming/">
 					Home  <span class="glyphicon glyphicon-home"></span></a>
 					</li>
@@ -22,7 +23,7 @@
 					<a href="/~n02531357/WebProgramming/progress.php">
 					Progress <span class="glyphicon glyphicon-road"></span></a>
 					</li>
-					<li>
+					<li class="active">
 					<a href="/~n02531357/WebProgramming/food.php">
 					Food <span class="glyphicon glyphicon-cutlery"></span></a>
 					</li>
