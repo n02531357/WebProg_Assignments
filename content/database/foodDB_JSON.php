@@ -1,4 +1,7 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+
 $servername = "localhost";
 $username = "n02531357";
 $password = "QAZxswedc123";
@@ -11,17 +14,22 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM food";
-$result = $conn->query($sql);
+$result = $conn->query("SELECT name, servings, calperserv, fat, carbs, protein, mealdate FROM food");
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["food_id"] . " - Name: " . $row["name"] . " " . "Servings: " . $row["servings"] . " Calories: "
-        . $row["calperserv"] . " Fat: " . $row["fat"] . " Carbs: " . $row["carbs"] . " Protein: " . $row["protein"]; 
-    }
-} else {
-    echo "0 results";
+$outp = "[";
+while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+    if ($outp != "[") {$outp .= ",";}
+    $outp .= '{"food":"'  . $rs["name"] . '",';
+    $outp .= '"servings":"'   . $rs["servings"]        . '",';
+    $outp .= '"calperserv":"'. $rs["calperserv"]     . '",';
+	$outp .= '"fat":"'  . $rs["fat"] . '",';
+	$outp .= '"carbs":"'  . $rs["carbs"] . '",';
+	$outp .= '"protein":"'  . $rs["protein"] . '",';
+	$outp .= '"mealdate":"'  . $rs["mealdate"] . '"}';
 }
+$outp .="]";
+
 $conn->close();
+
+echo($outp);
 ?> 
