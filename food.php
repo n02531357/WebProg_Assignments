@@ -29,7 +29,29 @@
 			<h1>Meal Summary</h1>
 		</div>
 	</div>
-			
+	
+	<!-- Button trigger modal -->
+	<div class="container">
+		<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">Add Food</button>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header"><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+				</div>
+				<div class="modal-body">
+    				To Add inline form, Angular controller
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="container">
 		<div class="table-responsive">
 			<div ng-app="" ng-controller="foodTableController">
@@ -62,9 +84,9 @@
 			  				<td>-</td>
 			  				<td>-</td>
 			  				<td>{{ getTotalCal() }}</td>
-			  				<td>-</td>
-			  				<td>-</td>
-			  				<td>-</td>
+			  				<td>{{ getTotalFat() }}</td>
+			  				<td>{{ getTotalCarb() }}</td>
+			  				<td>{{ getTotalProt() }}</td>
 			  				<td>-</td>
 			  			</tr>
 			  		</tbody>
@@ -73,18 +95,40 @@
 		</div>
 	</div>
 	
-		
+
+
 <script>
 function foodTableController($scope,$http) {
 	var dir = "content/database/foodDB_JSON.php";
 	$http.get(dir).success(function(response) {$scope.foods = response;});
 	$scope.getTotalCal = function(){
-    	var total = 0;
+    	var tCal = 0;
     	for(var i = 0; i < $scope.foods.length; i++){
-     	   total += ($scope.foods[i].calperserv * $scope.foods[i].servings);
+     	   tCal += ($scope.foods[i].calperserv * $scope.foods[i].servings);
     	}
-   		return total;
+   		return tCal;
 	}
+	$scope.getTotalFat = function(){
+    	var tFat = 0;
+    	for(var i = 0; i < $scope.foods.length; i++){
+     	   tFat += parseInt($scope.foods[i].fat);
+    	}
+   		return tFat;
+	}
+	$scope.getTotalCarb = function(){
+    	var tCarb = 0;
+    	for(var i = 0; i < $scope.foods.length; i++){
+     	   tCarb += parseInt($scope.foods[i].carbs);
+    	}
+   		return tCarb;
+	}
+	$scope.getTotalProt = function(){
+    	var tProt = 0;
+    	for(var i = 0; i < $scope.foods.length; i++){
+     	   tProt += parseInt($scope.foods[i].protein);
+     	}
+   		return tProt;
+   	}	
 }	
 </script> 
 <!-- Latest compiled and minified JavaScript -->
