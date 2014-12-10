@@ -14,12 +14,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$result = $conn->query("SELECT name, servings, calperserv, fat, carbs, protein, mealdate FROM food");
+$order = $conn->query("ALTER TABLE food ORDER BY food_id");
+$result = $conn->query("SELECT food_id, name, servings, calperserv, fat, carbs, protein, mealdate FROM food");
 
 $outp = "[";
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     if ($outp != "[") {$outp .= ",";}
-    $outp .= '{"food":"'  . $rs["name"] . '",';
+	$outp .= '{"id":"'  . $rs["food_id"] . '",';
+    $outp .= '"food":"'  . $rs["name"] . '",';
     $outp .= '"servings":"'   . $rs["servings"]        . '",';
     $outp .= '"calperserv":"'. $rs["calperserv"]     . '",';
 	$outp .= '"fat":"'  . $rs["fat"] . '",';

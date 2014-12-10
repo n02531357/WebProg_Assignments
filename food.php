@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 </head>
 
-<body>
+<body ng-app="foodTableApp" ng-controller="foodTableController">
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -32,7 +32,7 @@
 	
 	<!-- Button trigger modal -->
 	<div class="container">
-		<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#addFoodModal">Add Food</button>
+		<button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#addFoodModal">Add Food <span class="glyphicon glyphicon-plus"></button>
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="addFoodModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -73,24 +73,17 @@
     					</div>
     					<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary" onclick="submitFood()" data-dismiss="modal">Add Food</button>
+							<button type="button" class="btn btn-success" ng-click="addFood()" data-dismiss="modal">Save <span class="glyphicon glyphicon-ok"></button>
 						</div>     					    					    					  					    					    					
     				</form>
 				</div>
 			</div>
 		</div>
 	</div>
-<script>
-var submitFood = function(){
-	$.post( "model/database/addFood.php", $( "#addFood" ).serialize(), function( data ) {
-		alert( "Data returned: " + data );
-		});
-};
-</script>	
-	
+
 	<div class="container">
 		<div class="table-responsive">
-			<div ng-app="foodTableApp" ng-controller="foodTableController">
+			<div>
 				<table class="table table-hover">
 					<thead>
 						<tr>
@@ -114,6 +107,9 @@ var submitFood = function(){
 			    			<td>{{ (x.carbs)*(x.servings) }}</td>
 			    			<td>{{ (x.protein)*(x.servings) }}</td>
 			    			<td>{{ (x.mealdate) }}</td>
+			  				<td><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
+			  					<button type="button" ng-click="removeFood(x)"class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+			  				</td>
 			  			</tr>
 			  			<tr>
 			  				<td><strong>TOTALS:</strong></td>
@@ -123,7 +119,7 @@ var submitFood = function(){
 			  				<td>{{tFat()}}</td>
 			  				<td>{{tCarb()}}</td>
 			  				<td>{{tProt()}}</td>
-			  				<td><button class="btn btn-primary" ng-click="loadData()">Refresh</button></td>
+			  				<td>-</td>
 			  			</tr>
 			  		</tbody>
 				</table>
@@ -131,31 +127,7 @@ var submitFood = function(){
 		</div>
 	</div>
 	
-<script>
-var foodTable = angular.module('foodTableApp',[])
-.controller('foodTableController', function($scope, $http) {		
-		$scope.loadData = function(){
-			$http.get('model/database/foodDB_JSON.php').success(function(data){
-				$scope.foods=data;
-				$scope.tCal = function(){ return sum(data, 'calperserv'); };
-				$scope.tFat = function(){ return sum(data, 'fat'); };
-				$scope.tCarb = function(){ return sum(data, 'carbs'); };
-				$scope.tProt = function(){ return sum(data, 'protein'); };		
-			});
-		};
-		
-		$scope.loadData();
-		
-});
-
-function sum(data, field){
-	var total = 0;
-	$.each(data, function(i, el){
-		total += +el[field]*el['servings'];
-	});
-	return total;
-}				
-</script>
+<script src="controller/angularModules/foodModule.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>	
 </body>
 </html>
