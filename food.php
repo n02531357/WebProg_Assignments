@@ -30,6 +30,13 @@
 		</div>
 	</div>
 	
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+		    	Basic panel example
+		  	</div>
+		</div>
+	</div>
 	<!-- Button trigger modal -->
 	<div class="container">
 		<button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#addFoodModal">Add Food <span class="glyphicon glyphicon-plus"></button>
@@ -111,21 +118,12 @@
 			  					<button type="button" ng-click="removeFood(x)"class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
 			  				</td>
 			  			</tr>
-			  			<tr>
-			  				<td><strong>TOTALS:</strong></td>
-			  				<td>-</td>
-			  				<td>-</td>
-			  				<td>{{tCal()}}</td>
-			  				<td>{{tFat()}}</td>
-			  				<td>{{tCarb()}}</td>
-			  				<td>{{tProt()}}</td>
-			  				<td>-</td>
-			  			</tr>
 			  		</tbody>
 				</table>
 			 </div>
 		</div>
 	</div>
+		
 	
 <script src="angularModules/foodModule.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>	

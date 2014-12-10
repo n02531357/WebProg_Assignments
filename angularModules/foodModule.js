@@ -20,7 +20,7 @@ var foodTable = angular.module('foodTableApp',[])
 					    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 				})
 				.then(function(response){
-					$scope.loadData(); //update table view
+					$scope.loadData();
 				});
 			};
 			
