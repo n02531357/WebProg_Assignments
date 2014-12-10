@@ -1,4 +1,8 @@
-var foodTable = angular.module('foodTableApp',[])
+var foodTable = angular.module('foodTableApp',["xeditable"])
+	.run(function(editableOptions, editableThemes) {
+		editableThemes.bs3.inputClass = 'input-sm';
+  		editableOptions.theme = 'bs3';
+	})
 	.controller('foodTableController', function($scope, $http) {		
 			$scope.loadData = function(){
 				$http.get('model/database/getFood_DB.php').success(function(data){
@@ -43,7 +47,6 @@ var foodTable = angular.module('foodTableApp',[])
 				});
 			};			
 	});
-
 function sum(data, field){
 	var total = 0;
 	$.each(data, function(i, el){
