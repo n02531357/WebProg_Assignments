@@ -32,35 +32,71 @@
 	
 	<!-- Button trigger modal -->
 	<div class="container">
-		<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">Add Food</button>
+		<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#addFoodModal">Add Food</button>
 	</div>
 	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal fade" id="addFoodModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header"><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+					<h4 class="modal-title" id="foodModalTitle">Add a Food!</h4>
 				</div>
 				<div class="modal-body">
-    				To Add inline form, Angular controller
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
+    				<form role="form" id="addFood" method="post" action="model/database/addFood.php">
+    					<div class"form-group">
+    						<label for="food">Food:</label>
+    						<input type="text" class="form-control" id="foodInput" name="foodInput" placeholder="What did you eat?">
+    					</div>
+    					<div class"form-group">
+    						<label for="servings">Servings:</label>
+    						<input type="text" class="form-control" id="servInput" name="servInput" placeholder="Servings?">
+    					</div>
+    					<div class"form-group">
+    						<label for="calperserv">Calories:</label>
+    						<input type="text" class="form-control" id="calperservInput" name="calperservInput" placeholder="Calories per serving?">
+    					</div>
+    					<div class"form-group">
+    						<label for="fat">Fat:</label>
+    						<input type="text" class="form-control" id="fatInput" name="fatInput" placeholder="Fat(g)?">
+    					</div> 
+    					<div class"form-group">
+    						<label for="carbs">Carbs:</label>
+    						<input type="text" class="form-control" id="carbInput" name="carbInput" name="carbInput" placeholder="Carbs(g)?">
+    					</div> 
+    					<div class"form-group">
+    						<label for="protein">Protein:</label>
+    						<input type="text" class="form-control" id="protInput" name="protInput" placeholder="Protein(g)?">
+    					</div> 
+    					<div class"form-group">
+    						<label for="date">Time of Meal:</label>
+    						<input type="datetime" class="form-control" id="dateInput" name="dateInput" placeholder="YYYY-MM-DD HH:MM:SS">
+    					</div>
+    					<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary" onclick="submitFood()" data-dismiss="modal">Add Food</button>
+						</div>     					    					    					  					    					    					
+    				</form>
 				</div>
 			</div>
 		</div>
 	</div>
-
+<script>
+var submitFood = function(){
+	$.post( "model/database/addFood.php", $( "#addFood" ).serialize(), function( data ) {
+		alert( "Data returned: " + data );
+		});
+};
+</script>	
+	
 	<div class="container">
 		<div class="table-responsive">
-			<div ng-app="" ng-controller="foodTableController">
+			<div ng-app="foodTableApp" ng-controller="foodTableController">
 				<table class="table table-hover">
 					<thead>
 						<tr>
 			          		<th>Food</th>
 			          		<th>Servings</th>
-			         		<th>Calories per Serving</th>
+			         		<th>Calories</th>
 			         		<th>Calories Total</th>
 			         		<th>Fat(g)</th>
 			         		<th>Carbs(g)</th>
@@ -74,20 +110,20 @@
 			    			<td>{{ x.servings }}</td>
 			    			<td>{{ x.calperserv }}</td>
 			    			<td>{{ (x.calperserv)*(x.servings) }}</td>
-			    			<td>{{ x.fat }}</td>
-			    			<td>{{ x.carbs }}</td>
-			    			<td>{{ x.protein }}</td>
-			    			<td>{{ x.mealdate }}</td>
+			    			<td>{{ (x.fat)*(x.servings) }}</td>
+			    			<td>{{ (x.carbs)*(x.servings) }}</td>
+			    			<td>{{ (x.protein)*(x.servings) }}</td>
+			    			<td>{{ (x.mealdate) }}</td>
 			  			</tr>
 			  			<tr>
 			  				<td><strong>TOTALS:</strong></td>
 			  				<td>-</td>
 			  				<td>-</td>
-			  				<td>{{ getTotalCal() }}</td>
-			  				<td>{{ getTotalFat() }}</td>
-			  				<td>{{ getTotalCarb() }}</td>
-			  				<td>{{ getTotalProt() }}</td>
-			  				<td>-</td>
+			  				<td>{{tCal()}}</td>
+			  				<td>{{tFat()}}</td>
+			  				<td>{{tCarb()}}</td>
+			  				<td>{{tProt()}}</td>
+			  				<td><button class="btn btn-primary" ng-click="loadData()">Refresh</button></td>
 			  			</tr>
 			  		</tbody>
 				</table>
@@ -95,43 +131,31 @@
 		</div>
 	</div>
 	
-
-
 <script>
-function foodTableController($scope,$http) {
-	var dir = "content/database/foodDB_JSON.php";
-	$http.get(dir).success(function(response) {$scope.foods = response;});
-	$scope.getTotalCal = function(){
-    	var tCal = 0;
-    	for(var i = 0; i < $scope.foods.length; i++){
-     	   tCal += ($scope.foods[i].calperserv * $scope.foods[i].servings);
-    	}
-   		return tCal;
-	}
-	$scope.getTotalFat = function(){
-    	var tFat = 0;
-    	for(var i = 0; i < $scope.foods.length; i++){
-     	   tFat += parseInt($scope.foods[i].fat);
-    	}
-   		return tFat;
-	}
-	$scope.getTotalCarb = function(){
-    	var tCarb = 0;
-    	for(var i = 0; i < $scope.foods.length; i++){
-     	   tCarb += parseInt($scope.foods[i].carbs);
-    	}
-   		return tCarb;
-	}
-	$scope.getTotalProt = function(){
-    	var tProt = 0;
-    	for(var i = 0; i < $scope.foods.length; i++){
-     	   tProt += parseInt($scope.foods[i].protein);
-     	}
-   		return tProt;
-   	}	
-}	
-</script> 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+var foodTable = angular.module('foodTableApp',[])
+.controller('foodTableController', function($scope, $http) {		
+		$scope.loadData = function(){
+			$http.get('model/database/foodDB_JSON.php').success(function(data){
+				$scope.foods=data;
+				$scope.tCal = function(){ return sum(data, 'calperserv'); };
+				$scope.tFat = function(){ return sum(data, 'fat'); };
+				$scope.tCarb = function(){ return sum(data, 'carbs'); };
+				$scope.tProt = function(){ return sum(data, 'protein'); };		
+			});
+		};
+		
+		$scope.loadData();
+		
+});
+
+function sum(data, field){
+	var total = 0;
+	$.each(data, function(i, el){
+		total += +el[field]*el['servings'];
+	});
+	return total;
+}				
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>	
 </body>
 </html>
