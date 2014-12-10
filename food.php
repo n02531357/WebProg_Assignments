@@ -127,7 +127,7 @@
 		</div>
 	</div>
 	
-<script src="controller/angularModules/foodModule.js"></script>
+<script src="angularModules/foodModule.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>	
 </body>
 </html>
