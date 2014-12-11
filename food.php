@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
-<script src="angular-xeditable/js/xeditable.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
-<link href="angular-xeditable/css/xeditable.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+	<script src="angular-xeditable/js/xeditable.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+	<link href="angular-xeditable/css/xeditable.css" rel="stylesheet">
 </head>
 
 <body ng-app="foodTableApp" ng-controller="foodTableController">
@@ -63,47 +64,49 @@
 		</div>			
 	</div>
 	<!-- Modal -->
-	<div class="modal fade" id="addFoodModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header"><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					<h4 class="modal-title" id="foodModalTitle">Add a Food!</h4>
-				</div>
-				<div class="modal-body">
-    				<form role="form" id="addFood" method="post" action="model/database/addFood.php">
-    					<div class"form-group">
-    						<label for="food">Food:</label>
-    						<input type="text" class="form-control" id="foodInput" name="foodInput" placeholder="What did you eat?">
-    					</div>
-    					<div class"form-group">
-    						<label for="servings">Servings:</label>
-    						<input type="text" class="form-control" id="servInput" name="servInput" placeholder="Servings?">
-    					</div>
-    					<div class"form-group">
-    						<label for="calperserv">Calories:</label>
-    						<input type="text" class="form-control" id="calperservInput" name="calperservInput" placeholder="Calories per serving?">
-    					</div>
-    					<div class"form-group">
-    						<label for="fat">Fat:</label>
-    						<input type="text" class="form-control" id="fatInput" name="fatInput" placeholder="Fat(g)?">
-    					</div> 
-    					<div class"form-group">
-    						<label for="carbs">Carbs:</label>
-    						<input type="text" class="form-control" id="carbInput" name="carbInput" name="carbInput" placeholder="Carbs(g)?">
-    					</div> 
-    					<div class"form-group">
-    						<label for="protein">Protein:</label>
-    						<input type="text" class="form-control" id="protInput" name="protInput" placeholder="Protein(g)?">
-    					</div> 
-    					<div class"form-group">
-    						<label for="date">Time of Meal:</label>
-    						<input type="datetime" class="form-control" id="dateInput" name="dateInput" placeholder="YYYY-MM-DD HH:MM:SS">
-    					</div>
-    					<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-success" ng-click="addFood()" data-dismiss="modal">Save <span class="glyphicon glyphicon-ok"></button>
-						</div>     					    					    					  					    					    					
-    				</form>
+	<div class="container">
+		<div class="modal fade" id="addFoodModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header"><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title" id="foodModalTitle">Add a Food!</h4>
+					</div>
+					<div class="modal-body">
+	    				<form role="form" id="addFood" method="post" action="model/database/addFood.php">
+	    					<div class"form-group">
+	    						<label for="food">Food:</label>
+	    						<input type="text" class="form-control" id="foodInput" name="foodInput" placeholder="What did you eat?">
+	    					</div>
+	    					<div class"form-group">
+	    						<label for="servings">Servings:</label>
+	    						<input type="text" class="form-control" id="servInput" name="servInput" placeholder="Servings?">
+	    					</div>
+	    					<div class"form-group">
+	    						<label for="calperserv">Calories:</label>
+	    						<input type="text" class="form-control" id="calperservInput" name="calperservInput" placeholder="Calories per serving?">
+	    					</div>
+	    					<div class"form-group">
+	    						<label for="fat">Fat:</label>
+	    						<input type="text" class="form-control" id="fatInput" name="fatInput" placeholder="Fat(g)?">
+	    					</div> 
+	    					<div class"form-group">
+	    						<label for="carbs">Carbs:</label>
+	    						<input type="text" class="form-control" id="carbInput" name="carbInput" name="carbInput" placeholder="Carbs(g)?">
+	    					</div> 
+	    					<div class"form-group">
+	    						<label for="protein">Protein:</label>
+	    						<input type="text" class="form-control" id="protInput" name="protInput" placeholder="Protein(g)?">
+	    					</div> 
+	    					<div class"form-group">
+	    						<label for="date">Time of Meal:</label>
+	    						<input type="datetime" class="form-control" id="dateInput" name="dateInput" placeholder="YYYY-MM-DD HH:MM:SS">
+	    					</div>
+	    					<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-success" ng-click="addFood()" data-dismiss="modal">Save <span class="glyphicon glyphicon-ok"></button>
+							</div>     					    					    					  					    					    					
+	    				</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -115,7 +118,7 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
-			          		<th>Food</th>
+			          		<th>Workout</th>
 			          		<th>Servings</th>
 			         		<th>Calories</th>
 			         		<th>Calories Total</th>
