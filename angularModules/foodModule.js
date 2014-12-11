@@ -3,7 +3,8 @@ var foodTable = angular.module('foodTableApp',["xeditable"])
 		editableThemes.bs3.inputClass = 'input-sm';
   		editableOptions.theme = 'bs3';
 	})
-	.controller('foodTableController', function($scope, $http) {		
+	.controller('foodTableController', function($scope, $http) {
+			$scope.dailyGoal = 2400;		
 			$scope.loadData = function(){
 				$http.get('model/database/getFood_DB.php').success(function(data){
 					$scope.foods=data;

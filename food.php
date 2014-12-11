@@ -35,17 +35,32 @@
 	</div>
 	
 	<div class="container">
-		<div>
+		<div class='col-sm-6'>
 			<div class="panel panel-default">
 				<div class="panel-body">
-			    	Basic panel example
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{(tCal()/dailyGoal)*100 + '%'}}">
+							<span style="text-align: center, color: white">{{(tCal()/dailyGoal)*100 | number:0}}%</span>						  
+						</div>
+					</div>				
+					<p style="width:100%">
+						You have eaten <span style="width:20%" class='well well-sm'>{{tCal()}}</span> calories.
+					</p>
+					<br>
+					<p style="width:100%">
+						Your caloric goal is <span style="width:20%" class='well well-sm' e-style="width:50%" editable-number="dailyGoal">{{dailyGoal}} <span class="glyphicon glyphicon-pencil"></span></span>
+					</p>
+					<button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#addFoodModal">Add Food <span class="glyphicon glyphicon-plus"></button>
 			  	</div>
 			</div>
 		</div>
-	</div>
-	<!-- Button trigger modal -->
-	<div class="container">
-		<button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#addFoodModal">Add Food <span class="glyphicon glyphicon-plus"></button>
+		<div class='col-sm-6'>
+			<div class="panel panel-default">
+				<div class="panel-body">
+			    	To add FaceBook/Social networking
+			  	</div>
+			</div>
+		</div>			
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="addFoodModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

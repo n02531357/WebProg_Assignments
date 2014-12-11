@@ -20,7 +20,7 @@ $servings = intval(strip_tags($_POST['servings']));
 $calperserv = intval(strip_tags($_POST['calperserv']));
 $fat = intval(strip_tags($_POST['fat']));
 $carbs = intval(strip_tags($_POST['carbs']));
-$protein = intval(strip_tags($_POST['prot']));
+$protein = intval(strip_tags($_POST['protein']));
 $date = "'" . strip_tags($_POST['mealdate']) . "'";
 
 $sql= "UPDATE food SET name=" . $food_name . ","
