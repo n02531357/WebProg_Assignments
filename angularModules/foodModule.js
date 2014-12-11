@@ -45,7 +45,26 @@ var foodTable = angular.module('foodTableApp',["xeditable"])
 				.then(function(response){
 					$scope.loadData(); //update table view
 				});
-			};			
+			};
+			
+			$scope.updateFood = function(row){
+				$scope.curRow = row;
+				$http({
+					   	method: 'POST',
+					    url: 'model/database/updateFood_DB.php',
+					    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+					    transformRequest: function(obj) {
+					        var str = [];
+					        for(var p in obj)
+					        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+					        return str.join("&");
+					    },					    
+					    data: $scope.curRow					  
+				})
+				.then(function(response){
+					//$scope.loadData(); local view only need to be changed for equality
+				});
+			};						
 	});
 function sum(data, field){
 	var total = 0;

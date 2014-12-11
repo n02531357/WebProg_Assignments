@@ -121,7 +121,7 @@
 			    			<td style="width:10%"><span e-style="width: 100%" editable-text="x.protein" e-name="protein" e-form="rowform" e-required>{{ (x.protein)*(x.servings) }}</span></td>
 			    			<td style="width:15%"><span e-style="width: 100%" editable-datetime="x.mealdate" e-name="date" e-form="rowform" e-required>{{ (x.mealdate) }}</span></td>
 			  				<td style="width:10%">
-									<form editable-form name="rowform" onbeforesave="" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == x">
+									<form editable-form name="rowform" onaftersave="updateFood(x)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == x">
 										<button type="submit" ng-disabled="rowform.$waiting" class="btn btn-success"><span class="glyphicon glyphicon-save"></span></button>
 										<button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
 									</form>
