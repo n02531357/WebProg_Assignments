@@ -14,23 +14,16 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$food = '"' . strip_tags($_POST['foodInput']) . '"';
-$servings = intval(strip_tags($_POST['servInput']));
-$calperserv = intval(strip_tags($_POST['calperservInput']));
-$fat = intval(strip_tags($_POST['fatInput']));
-$carbs = intval(strip_tags($_POST['carbInput']));
-$protein = intval(strip_tags($_POST['protInput']));
+$work = '"' . strip_tags($_POST['workInput']) . '"';
+$minutes = intval(strip_tags($_POST['minInput']));
+$calburned = intval(strip_tags($_POST['calburnedInput']));
 $time = "'" . strip_tags($_POST['timeInput']) . "'";
+$date = "'" . strip_tags($_POST['dateInput']) . "'";
+$user='"' .strip_tags($_POST['uid']) . '"';
 
 
-$sql= "INSERT INTO food (name, servings, calperserv, fat, carbs, protein, mealtime) 
-				VALUES (" . $food . "," 
-						. $servings . "," 
-						. $calperserv . "," 
-						. $fat . "," 
-						. $carbs . "," 
-						. $protein . "," 
-						. $time . ")" ;
+$sql= "INSERT INTO workouts (name, minutes, calburned, worktime, workdate, user_id) 
+				VALUES ($work, $minutes, $calburned, $time, $date, $user)";
 					
 
 

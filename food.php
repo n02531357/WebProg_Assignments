@@ -99,7 +99,7 @@
 	    					</div> 
 	    					<div class"form-group">
 	    						<label for="date">Time of Meal:</label>
-	    						<input type="datetime" class="form-control" id="dateInput" name="dateInput" placeholder="YYYY-MM-DD HH:MM:SS">
+	    						<input type="datetime" class="form-control" id="timeInput" name="timeInput" placeholder="HH:MM:SS">
 	    					</div>
 	    					<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -118,14 +118,14 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
-			          		<th>Workout</th>
+			          		<th>Food</th>
 			          		<th>Servings</th>
 			         		<th>Calories</th>
 			         		<th>Calories Total</th>
 			         		<th>Fat(g)</th>
 			         		<th>Carbs(g)</th>
 			         		<th>Protein(g)</th>
-			         		<th>Date</th>
+			         		<th>Time</th>
 					    </tr>
 					</thead>
 					<tbody>
@@ -137,7 +137,7 @@
 			    			<td style="width:10%"><span e-style="width: 100%" editable-text="x.fat" e-name="fat" e-form="rowform" e-required>{{ (x.fat)*(x.servings) }}</span></td>
 			    			<td style="width:10%"><span e-style="width: 100%" editable-text="x.carbs" e-name="carbs" e-form="rowform" e-required>{{ (x.carbs)*(x.servings) }}</span></td>
 			    			<td style="width:10%"><span e-style="width: 100%" editable-text="x.protein" e-name="protein" e-form="rowform" e-required>{{ (x.protein)*(x.servings) }}</span></td>
-			    			<td style="width:15%"><span e-style="width: 100%" editable-datetime="x.mealdate" e-name="date" e-form="rowform" e-required>{{ (x.mealdate) }}</span></td>
+			    			<td style="width:15%"><span e-style="width: 100%" editable-datetime="x.mealtime" e-name="time" e-form="rowform" e-required>{{ (x.mealtime) }}</span></td>
 			  				<td style="width:10%">
 									<form editable-form name="rowform" onaftersave="updateFood(x)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == x">
 										<button type="submit" ng-disabled="rowform.$waiting" class="btn btn-success"><span class="glyphicon glyphicon-save"></span></button>

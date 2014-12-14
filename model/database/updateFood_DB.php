@@ -21,7 +21,7 @@ $calperserv = intval(strip_tags($_POST['calperserv']));
 $fat = intval(strip_tags($_POST['fat']));
 $carbs = intval(strip_tags($_POST['carbs']));
 $protein = intval(strip_tags($_POST['protein']));
-$date = "'" . strip_tags($_POST['mealdate']) . "'";
+$time = "'" . strip_tags($_POST['mealtime']) . "'";
 
 $sql= "UPDATE food SET name=" . $food_name . ","
 					. "servings=" . $servings . ","
@@ -29,7 +29,7 @@ $sql= "UPDATE food SET name=" . $food_name . ","
 					. "fat=" . $fat . ","
 					. "carbs=" . $carbs . ","
 					. "protein=" . $protein . ","
-					. "mealdate=" . $date
+					. "mealtime=" . $time
 					. "WHERE food_id=" . $food_id;
 
 
