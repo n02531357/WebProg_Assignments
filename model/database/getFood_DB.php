@@ -14,8 +14,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$order = $conn->query("ALTER TABLE food ORDER BY food_id");
-$result = $conn->query("SELECT food_id, name, servings, calperserv, fat, carbs, protein, mealtime FROM food");
+$date='"' .strip_tags($_POST['date']) . '"';
+$user='"' .strip_tags($_POST['uid']) . '"';
+$result = $conn->query("SELECT food_id, name, servings, calperserv, fat, carbs, protein, mealtime, mealdate FROM food WHERE mealdate=$date and user_id=$user");
 
 $outp = "[";
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -27,7 +28,8 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
 	$outp .= '"fat":"'  . $rs["fat"] . '",';
 	$outp .= '"carbs":"'  . $rs["carbs"] . '",';
 	$outp .= '"protein":"'  . $rs["protein"] . '",';
-	$outp .= '"mealtime":"'  . $rs["mealtime"] . '"}';
+	$outp .= '"mealtime":"'  . $rs["mealtime"] . '",';
+	$outp .= '"mealdate":"'  . $rs["mealdate"] . '"}';
 }
 $outp .="]";
 

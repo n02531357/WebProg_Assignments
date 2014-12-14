@@ -21,17 +21,13 @@ $fat = intval(strip_tags($_POST['fatInput']));
 $carbs = intval(strip_tags($_POST['carbInput']));
 $protein = intval(strip_tags($_POST['protInput']));
 $time = "'" . strip_tags($_POST['timeInput']) . "'";
+$date = "'" . strip_tags($_POST['dateInput']) . "'";
+$user='"' .strip_tags($_POST['uid']) . '"';
 
 
-$sql= "INSERT INTO food (name, servings, calperserv, fat, carbs, protein, mealtime) 
-				VALUES (" . $food . "," 
-						. $servings . "," 
-						. $calperserv . "," 
-						. $fat . "," 
-						. $carbs . "," 
-						. $protein . "," 
-						. $time . ")" ;
-					
+$sql= "INSERT INTO food (name, servings, calperserv, fat, carbs, protein, mealtime, mealdate, user_id) 
+				VALUES ($food,$servings,$calperserv,$fat,$carbs,$protein,$time,$date,$user)" ;
+
 
 
 if ($conn->query($sql) === TRUE) {
