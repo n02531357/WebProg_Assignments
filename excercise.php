@@ -63,7 +63,7 @@
 						<br>
 						<button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#addWorkModal">Add an Excercise <span class="glyphicon glyphicon-plus"></button>
 						<br>
-						<button type="button" class="btn btn-primary btn-md" data-toggle="modal" ng-click="setDate()">Select Day <span class="glyphicon glyphicon-calendar"></button>
+						<button type="button" class="btn btn-primary btn-md" ng-click="setDate()">Select Day <span class="glyphicon glyphicon-calendar"></button>
 						<br>
 						<p>Select a day on the calendar and click "Select Day" to go to that day's summary.</p>
 					</div>			
@@ -75,14 +75,14 @@
 				<div class="panel-body">
 			    	<div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
 			    	<br>
-					<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true" ></div>
+					<div class="fb-login-button" data-scope="user_friends" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true" ></div>
 					<br>
 					<div id="status"></div>
 			  	</div>
 			</div>
 		</div>			
 	</div>
-	<!-- Modal -->
+	<!--  Work Modal -->
 	<div class="modal fade" id="addWorkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -120,9 +120,35 @@
 			</div>
 		</div>
 	</div>
-	
+	<!--Friend Modal-->
 	<div class="container" style="text-align: center">
-		
+		<div class="modal fade" id="addFriendModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header"><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title" id="friendModalTitle">Add work out buddies!</h4>
+					</div>
+					<div class="modal-body">
+						<div class="panel panel-primary">
+					        <div class="panel-heading">Add buddies!</div>
+					              <div class="panel-body" style="max-height: 20;overflow-y: scroll;">
+										<div class="table-responsive">
+									
+												{{friends[0].name}}
+											
+										</div>										
+					              </div>
+					        </div>
+						</div>						
+	    					<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-success" data-dismiss="modal">Save <span class="glyphicon glyphicon-ok"></button>
+							</div>     					    					    					  					    					    					
+	    				</form>
+					</div>
+				</div>
+			</div>
+		</div>		
 	</div>
 	
 	<div class="container">
@@ -136,6 +162,7 @@
 			         		<th>Calories Burned</th>
 			         		<th>Time</th>
 			         		<th>Date</th>
+			         		<th>Friends</th>
 					    </tr>
 					</thead>
 					<tbody>
@@ -145,6 +172,7 @@
 			    			<td style="width:10%"><span e-style="width: 100%" editable-text="x.calburned" e-name="calburned" e-form="rowform" e-required>{{ x.calburned }}</span></td>
 			    			<td style="width:15%"><span e-style="width: 100%" editable-datetime="x.worktime" e-name="time" e-form="rowform" e-required>{{ x.worktime | date:'hh:mm'}}</span></td>
 			    			<td style="width:15%">{{ x.workdate | date:'MM/dd/yyyy'}}</td>
+			    			<td style="width:5%"><img src='content/pics/facebook-button.jpg' ng-click"getFriends()" data-toggle="modal" data-target="#addFriendModal"/></td>
 			  				<td style="width:10%">
 									<form editable-form name="rowform" onaftersave="updateWork(x)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == x">
 										<button type="submit" ng-disabled="rowform.$waiting" class="btn btn-success"><span class="glyphicon glyphicon-save"></span></button>

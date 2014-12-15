@@ -1,5 +1,5 @@
 var loadUserData;
-var apply;
+var friends
 var workTable = angular.module('workTableApp',["xeditable"])
 	.run(function(editableOptions, editableThemes) {
 		editableThemes.bs3.inputClass = 'input-sm';
@@ -35,6 +35,10 @@ var workTable = angular.module('workTableApp',["xeditable"])
 			});
 		};
 		
+		$scope.getFriends = function(){
+			$scope.friends = friends;
+			$scope.$apply();
+		};
 		
 		$scope.addWork = function(){
 			$http({
@@ -179,10 +183,8 @@ function sum(data, field){
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Welcome, ' + response.name + '!';
-       
+    FB.api('/me/taggable_friends', function(response) {
+    	friends = response.data;
+      	console.log(friends);     
     });  
   }
