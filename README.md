@@ -3,6 +3,13 @@
 
 ##Web Programming Assignments/Fitness Tracker
 
+###Final 12/15/14
+- Successfully acquired friends data
+- Attempted to create scrollable panel of friends, addable via check marks and submit button
+- added inline via table row
+- could not get angular scope variable to update with friend data
+###Other Notes
+- Facebook logged in experience works on manual refresh
 ###Minimum Functioning Requirements:
 - User Account System/Database
 - Nutrition/Caloric tracking system
